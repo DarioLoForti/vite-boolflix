@@ -14,10 +14,10 @@ export default {
             <div class="row">
                     <div class="col-12" v-for="(movie, index) in store.movies" :key="index">
                         <ul class="list-unstyled">
-                            <li>{{ movie.title }}</li>
-                            <li>{{ movie.original_title }}</li>
-                            <li>{{ movie.original_language }}</li>
-                            <li>{{ movie.vote_average }}</li>
+                            <li> Titolo: {{ movie.title }}</li>
+                            <li> Titolo Originale: {{ movie.original_title }}</li>
+                            <li> Lingua: {{ movie.original_language }}</li>
+                            <li> Votazione: {{ movie.vote_average }}</li>
                         </ul>
                     </div>
             </div>
