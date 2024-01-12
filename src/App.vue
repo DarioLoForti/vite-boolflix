@@ -2,9 +2,11 @@
 import { store } from './store.js'
 import axios from 'axios';
 import Header from './components/Header.vue'
+import Main from './components/Main.vue';
 export default {
   components:{
     Header,
+    Main
   },
   data(){
     return{
@@ -14,7 +16,8 @@ export default {
   methods: {
     search(){
       axios.get(`${store.UrlPointMovie}${store.keyApi}&query=${store.search}&language=it-IT`).then( response =>{
-        console.log(response.data.results);
+        store.movies = response.data.results
+        console.log(store.movies);
       })
     }
   },
@@ -23,6 +26,7 @@ export default {
 </script>
 <template lang="">
  <Header @search ="search" />
+ <Main />
 </template>
 <style lang="scss">
 @use './styles/generals.scss' as *;
