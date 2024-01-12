@@ -5,7 +5,14 @@ export default {
         return{
             store
         }
+    },
+    methods:{
+        getflag(){
+
+            return `https://flagsapi.com/${this.movie.original_language.toUpperCase()}/shiny/24.png`
+        }
     }
+    
 }
 </script>
 <template lang="">
@@ -16,7 +23,8 @@ export default {
                         <ul class="list-unstyled">
                             <li> Titolo: {{ movie.title }}</li>
                             <li> Titolo Originale: {{ movie.original_title }}</li>
-                            <li> Lingua: {{ movie.original_language }}</li>
+                            <li> Lingua: {{ movie.original_language.toUpperCase()}} <img :src= "getflag">
+                            </li>
                             <li> Votazione: {{ movie.vote_average }}</li>
                         </ul>
                     </div>
