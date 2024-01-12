@@ -7,9 +7,20 @@ export default {
         }
     },
     methods:{
-        getflag(){
-
-            return `https://flagsapi.com/${this.movie.original_language.toUpperCase()}/shiny/24.png`
+        
+        getflag(lang){
+            let src = ""
+            if (lang == 'en') {
+                src = `https://flagsapi.com/GB/flat/24.png`
+                return src
+            }
+            if (lang == 'ja') {
+                src = `https://flagsapi.com/JP/flat/24.png`
+                return src
+            }
+            src = `https://flagsapi.com/${lang.toUpperCase()}/flat/24.png`
+            return src
+            
         }
     }
     
@@ -23,10 +34,11 @@ export default {
                         <ul class="list-unstyled">
                             <li> Titolo: {{ movie.title }}</li>
                             <li> Titolo Originale: {{ movie.original_title }}</li>
-                            <li> Lingua: {{ movie.original_language.toUpperCase()}} <img :src= "getflag">
+                            <li> Lingua: {{ movie.original_language.toUpperCase()}} <img class="flag" :src="getflag(movie.original_language)">
                             </li>
                             <li> Votazione: {{ movie.vote_average }}</li>
                         </ul>
+
                     </div>
             </div>
         </div>

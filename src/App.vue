@@ -17,7 +17,7 @@ export default {
     search(){
       axios.get(`${store.UrlPointMovie}${store.keyApi}&query=${store.search}&language=it-IT`).then( response =>{
         store.movies = response.data.results
-        console.log(store.movies);
+        
       })
     }
   },
