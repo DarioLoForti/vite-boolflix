@@ -12,22 +12,17 @@ export default {
     }
   },
   methods: {
-    getmovies_list(){
-      let Apisearch = 'https://api.themoviedb.org/3/search/movie?api_key=e99307154c6dfb0b4750f6603256716d&query=ritorno+al+futuro'
-
-      axios.get(Apisearch).then((response) => {
-      store.movies = response
-    })
+    search(){
+      axios.get(`${store.UrlPointMovie}${store.keyApi}&query=${store.search}&language=it-IT`).then( response =>{
+        console.log(response.data.results);
+      })
+    }
   },
-  
-},
-created(){
-  this.getmovies_list();
-}
+
 }
 </script>
 <template lang="">
- <Header />
+ <Header @search ="search" />
 </template>
 <style lang="scss">
 @use './styles/generals.scss' as *;

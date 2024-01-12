@@ -1,6 +1,12 @@
 <script>
+import { store } from '../store.js'
 export default {
-    name: 'Header'
+    name: 'Header',
+    data(){
+        return{
+            store
+        }
+    }
 }
 </script>
 <template lang="">
@@ -13,8 +19,8 @@ export default {
                     </div>
                 </div>
                 <div class="col-6 d-flex">
-                    <input type="text" class="form-control" placeholder="Ricerca">
-                    <button class="btn btn-secondary">Cerca</button>
+                    <input type="text" class="form-control" placeholder="Ricerca" v-model="store.search">
+                    <button class="btn btn-secondary mx-3" @click="$emit('search')">Cerca</button>
                 </div>
             </div>
         </div>
@@ -24,10 +30,13 @@ export default {
 @use '../styles/generals.scss' as *;
     header{
         background-color: black;
+        padding: 30px 0px;
 
         h2{
             color: red;
+            font-weight: 700;
         }
+        
     }
     
 </style>
