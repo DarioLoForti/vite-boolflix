@@ -19,7 +19,7 @@ export default {
                     </div>
                 </div>
                 <div class="col-6 d-flex">
-                    <input type="text" class="form-control" placeholder="Ricerca" v-model="store.search">
+                    <input type="text" class="form-control" placeholder="Ricerca" v-model="store.search" @keyup.enter="$emit('search')">
                     <button class="btn btn-secondary mx-3" @click="$emit('search')">Cerca</button>
                 </div>
             </div>

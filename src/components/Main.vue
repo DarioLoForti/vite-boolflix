@@ -1,60 +1,35 @@
 <script>
 import { store } from '../store.js'
+import CardFilm from './CardFilm.vue';
+import CardSerie from './CardSerie.vue';
 export default {
+    name: 'Main',
+    components:{
+        CardFilm,
+        CardSerie
+    },
     data(){
         return{
             store
         }
     },
-    methods:{
-        
-        flag(lang){
-            let src = ""
-            if (lang == 'en') {
-                src = `https://flagsapi.com/GB/flat/24.png`
-                return src
-            }
-            if (lang == 'ja') {
-                src = `https://flagsapi.com/JP/flat/24.png`
-                return src
-            }
-            if (lang == 'ko') {
-                src = `https://flagsapi.com/KR/flat/24.png`
-                return src
-            }
-            src = `https://flagsapi.com/${lang.toUpperCase()}/flat/24.png`
-            return src
-            
-        }
-    }
+   
     
 }
 </script>
 <template lang="">
     <main>
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <h4>Film</h4>
                     <div class="col-6" v-for="(movie, index) in store.movies" :key="index">
-                        <ul class="list-unstyled">
-                            <li> Titolo: {{ movie.title }}</li>
-                            <li> Titolo Originale: {{ movie.original_title }}</li>
-                            <li> Lingua: {{ movie.original_language.toUpperCase()}} <img class="flag" :src="flag(movie.original_language)">
-                            </li>
-                            <li> Votazione: {{ movie.vote_average }}</li>
-                        </ul>
+                        <CardFilm v-for="card, index in store.movies" :key="index" :card="card"/>
                     </div>
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
                 <h4>Serie</h4>
                 <div class="col-6" v-for="(serie, index) in store.series" :key="index">
-                    <ul class="list-unstyled">
-                        <li> Titolo: {{ serie.name }}</li>
-                        <li> Titolo Originale: {{ serie.original_name }}</li>
-                        <li> Lingua: {{ serie.original_language.toUpperCase()}} <img class="flag" :src="flag(serie.original_language)">
-                        </li>
-                        <li> Votazione: {{ serie.vote_average }}</li>
-                    </ul>
+                    <CardSerie v-for="card, index in store.series" :key="index" :card="card"/>
                 </div>
             </div>
         </div>
@@ -64,9 +39,7 @@ export default {
 <style lang="scss" scoped>
 main{
     background-color: rgb(56, 56, 56);
-    li{
-        color: white;
-    }
+    
     h4{
         text-align: center;
         color: red;
