@@ -18,6 +18,15 @@ export default {
                         <h1>Boolflix</h1>
                     </div>
                 </div>
+                <div class="col-4">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Film</a></li>
+                        <li><a href="#">Serie Tv</a></li>
+                        <li><a href="#">La mia lista</a></li>
+                    </ul>
+                </div>  
+                
                 <div class="col-6 d-flex">
                     <input type="text" class="form-control" placeholder="Ricerca film o serie" v-model="store.search" @keyup.enter="$emit('search')">
                     <button class="btn btn-secondary mx-3" @click="$emit('search')">Cerca</button>
@@ -35,6 +44,20 @@ export default {
         h1{
             color: red;
             font-weight: 700;
+        }
+        ul{
+            display: flex;
+            list-style: none;
+            li{
+                line-height: 50px;
+                color: white;
+                margin-right: 10px;
+
+                a{
+                    text-decoration: none;
+                    color: white;
+                }
+            }
         }
         
     }

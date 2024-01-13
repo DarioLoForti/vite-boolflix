@@ -59,6 +59,7 @@ export default {
     .posterImg{
         width: 100%;
         margin-bottom: 30px;
+       
     }
 
 h5,
