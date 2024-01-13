@@ -15,11 +15,11 @@ export default {
             <div class="row justify-content-between">
                 <div class="col-2">
                     <div class="logo">
-                        <h2>Boolflix</h2>
+                        <h1>Boolflix</h1>
                     </div>
                 </div>
                 <div class="col-6 d-flex">
-                    <input type="text" class="form-control" placeholder="Ricerca" v-model="store.search" @keyup.enter="$emit('search')">
+                    <input type="text" class="form-control" placeholder="Ricerca film o serie" v-model="store.search" @keyup.enter="$emit('search')">
                     <button class="btn btn-secondary mx-3" @click="$emit('search')">Cerca</button>
                 </div>
             </div>
@@ -32,7 +32,7 @@ export default {
         background-color: black;
         padding: 30px 0px;
 
-        h2{
+        h1{
             color: red;
             font-weight: 700;
         }

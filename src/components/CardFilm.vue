@@ -35,17 +35,36 @@ export default {
 }
 </script>
 <template lang="">
-    <div class="my-card">
-        <div class="content-card">
-            <h5> Titolo: {{ card.title }}</h5>
-            <h6> Titolo Originale: {{ card.original_title }}</h6>
-            <div class="lingua"> Lingua: {{ card.original_language.toUpperCase()}} <img class="flag" :src="flag(card.original_language)">
-            </div>
-            <div class="voto"> Votazione: {{ card.vote_average }}</div>
+    
+        <div class="my-card">
+                <img class="posterImg" :src="`https://image.tmdb.org/t/p/w342/${card.poster_path}`" alt="">
+                <h5> Titolo: {{ card.title }}</h5>
+                <h6> Titolo Originale: {{ card.original_title }}</h6>
+                <div class="lingua"> <h6>Lingua: {{ card.original_language.toUpperCase()}}</h6> <img class="flag" :src="flag(card.original_language)">
+                </div>
+                <div class="voto"> <h6>Voto: {{ card.vote_average }}</h6></div>
+            
         </div>
-    </div>
+   
 </template>
 <style lang="scss" scoped>
+
+
+   .my-card{
+    width: calc(100% / 4 - 20px);
+    margin: 10px;
+   }
+
+
+    .posterImg{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+h5,
+h6{
+    color: white;
+}
 
     
 </style>

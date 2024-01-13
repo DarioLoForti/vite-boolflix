@@ -20,15 +20,19 @@ export default {
 <template lang="">
     <main>
         <div class="container">
-            <div class="row justify-content-center">
-                <h4>Film</h4>
-                    <div class="col-6" v-for="(movie, index) in store.movies" :key="index">
-                        <CardFilm v-for="card, index in store.movies" :key="index" :card="card"/>
-                    </div>
+            <div class="row">
+                <div class="col-12">
+                    <h3>Film</h3>
+                </div>
+                <div class="my-card-col">
+                    <CardFilm v-for="card, index in store.movies" :key="index" :card="card"/>
+                </div>
             </div>
-            <div class="row justify-content-center">
-                <h4>Serie</h4>
-                <div class="col-6" v-for="(serie, index) in store.series" :key="index">
+            <div class="row ">
+                <div class="col-12">
+                <h3>Serie</h3>
+                </div>
+                <div class="my-card-col">
                     <CardSerie v-for="card, index in store.series" :key="index" :card="card"/>
                 </div>
             </div>
@@ -39,8 +43,12 @@ export default {
 <style lang="scss" scoped>
 main{
     background-color: rgb(56, 56, 56);
-    
-    h4{
+    .my-card-col {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    h3{
         text-align: center;
         color: red;
         font-weight: bold;
