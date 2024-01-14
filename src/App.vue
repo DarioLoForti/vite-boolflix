@@ -4,11 +4,13 @@ import axios from 'axios';
 import Header from './components/Header.vue'
 import Main from './components/Main.vue';
 import PopularFilm from './components/PopularFilm.vue';
+import PopularSerie from './components/PopularSerie.vue';
 export default {
   components:{
     Header,
     Main,
-    PopularFilm
+    PopularFilm,
+    PopularSerie
   },
   data(){
     return{
@@ -20,6 +22,12 @@ export default {
   PopularFilm(){
     axios.get(`${store.UrlPopularMovie}${store.keyApi}`).then(response =>{
         store.PopularMovies = response.data.results
+
+        });   
+  },
+  PopularSerie(){
+    axios.get(`${store.UrlPopularSeries}${store.keyApi}`).then(response =>{
+        store.PopularSeries = response.data.results
 
         });   
   },
@@ -42,6 +50,7 @@ export default {
   },
   created(){
     this.PopularFilm();
+    this.PopularSerie();
   }
   
 }
@@ -50,6 +59,7 @@ export default {
 <template lang="">
  <Header @search ="search" />
  <PopularFilm />
+ <PopularSerie />
  <Main />
 </template>
 <style lang="scss">

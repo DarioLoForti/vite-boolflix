@@ -6,6 +6,8 @@ export const store = reactive({
     series: [],
     UrlPopularMovie: 'https://api.themoviedb.org/3/movie/popular?api_key=',
     PopularMovies: [],
+    UrlPopularSeries: 'https://api.themoviedb.org/3/tv/popular?api_key=',
+    PopularSeries: [],
     keyApi: 'ebb547ab2123b8e09060d57aad2efea6', 
     search: '',
 })
