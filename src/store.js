@@ -6,6 +6,5 @@ export const store = reactive({
     series: [],
     keyApi: 'ebb547ab2123b8e09060d57aad2efea6', 
     search: '',
-    
 })
 

@@ -16,19 +16,14 @@ export default {
   methods: {
     search(){
       
-
         axios.get(`${store.UrlPointMovie}${store.keyApi}&query=${store.search}&language=it-IT`).then( response =>{
         store.movies = response.data.results
 
         });
 
-
-
-
         axios.get(`${store.UrlPointSeries}${store.keyApi}&query=${store.search}&language=it-IT`).then( response =>{
         store.series = response.data.results
         });      
-
       
     }
     

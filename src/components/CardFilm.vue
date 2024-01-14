@@ -68,8 +68,7 @@ export default {
     width: calc(100% / 6 - 20px);
     margin: 10px;
     overflow-y: scroll;
-    max-height: 400px; /* Imposta un'altezza massima per la tua carta, in modo che la barra di scorrimento compaia solo quando necessario */
-    position: relative;
+    max-height: 400px; 
    }
    .stars{
     color: gold;
@@ -84,7 +83,7 @@ export default {
     width: 100%;
     height: 300px;
     perspective: 1000px;
-    display: flex; /* Abilita il layout flessibile per gestire il posizionamento dei figli */
+    display: flex;
     flex-direction: column;
   }
  
@@ -95,8 +94,8 @@ export default {
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    flex: 1; /* Fai espandere l'elemento interno del flip-card per occupare tutto lo spazio disponibile */
-    display: flex; /* Abilita il layout flessibile per gestire il posizionamento dei figli */
+    flex: 1; 
+    display: flex; 
     flex-direction: column;
   }
   
@@ -120,7 +119,7 @@ export default {
     background-color: black;
     color: white;
     transform: rotateY(180deg);
-    overflow-y: scroll; /* Aggiunge la barra di scorrimento solo per la parte posteriore del flip-card */
+    overflow-y: scroll; 
     flex: 1;
   }
 
@@ -129,5 +128,4 @@ h6{
     margin-top: 20px;
     color: white;
 }
-
 </style>
