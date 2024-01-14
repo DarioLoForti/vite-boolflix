@@ -2,11 +2,13 @@
 import { store } from '../store.js'
 import CardFilm from './CardFilm.vue';
 import CardSerie from './CardSerie.vue';
+import PopularFilm from './PopularFilm.vue';
 export default {
     name: 'Main',
     components:{
         CardFilm,
-        CardSerie
+        CardSerie,
+        PopularFilm   
     },
     data(){
         return{

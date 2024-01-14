@@ -62,7 +62,7 @@ export default {
 </template>
 <style lang="scss" scoped>
 .my-card{
-    width: calc(100% / 6 - 20px);
+    width: calc(100% / 5 - 20px);
     margin: 10px;
     overflow-y: scroll;
     max-height: 400px; /* Imposta un'altezza massima per la tua carta, in modo che la barra di scorrimento compaia solo quando necessario */

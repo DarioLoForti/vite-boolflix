@@ -65,7 +65,7 @@ export default {
 </template>
 <style lang="scss" scoped>
 .my-card{
-    width: calc(100% / 6 - 20px);
+    width: calc(100% / 5 - 20px);
     margin: 10px;
     overflow-y: scroll;
     max-height: 400px; 

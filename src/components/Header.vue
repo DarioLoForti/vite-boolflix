@@ -18,13 +18,14 @@ export default {
                         <h1>Boolflix</h1>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-4 d-flex">
                     <ul>
                         <li><a href="#">Home</a></li>
                         <li><a href="#">Film</a></li>
                         <li><a href="#">Serie Tv</a></li>
                         <li><a href="#">La mia lista</a></li>
                     </ul>
+                    
                 </div>  
                 
                 <div class="col-6 d-flex">
