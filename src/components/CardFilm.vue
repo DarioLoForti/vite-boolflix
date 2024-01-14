@@ -48,7 +48,7 @@ export default {
                 <div class="flip-card-front">
                     <img class="posterImg" :src="`https://image.tmdb.org/t/p/w342/${card.poster_path}`" alt="">
                 </div>
-                <div class="flip-card-back">
+                <div class="flip-card-back p-4">
                     <h5> Titolo: {{ card.title }}</h5>
                     <h6> Titolo Originale: {{ card.original_title }}</h6>
                     <div class="lingua"> <h6>Lingua: {{ card.original_language.toUpperCase()}}</h6> <img class="flag" :src="flag(card.original_language)">

@@ -29,8 +29,8 @@ export default {
                 </div>  
                 
                 <div class="col-6 d-flex">
-                    <input type="text" class="form-control" placeholder="Ricerca film o serie" v-model="store.search" @keyup.enter="$emit('search')">
-                    <button class="btn btn-secondary mx-3" @click="$emit('search')">Cerca</button>
+                    <input type="text" class="form-control  h" placeholder="Ricerca film o serie" v-model="store.search" @keyup.enter="$emit('search')">
+                    <button class="btn btn-secondary mx-2 h" @click="$emit('search')">Cerca</button>
                 </div>
             </div>
         </div>
@@ -40,7 +40,10 @@ export default {
 @use '../styles/generals.scss' as *;
     header{
         background-color: black;
-        padding: 30px 0px;
+        padding-top: 20px;
+        .h{
+            height: 50px;
+        }
 
         h1{
             color: red;

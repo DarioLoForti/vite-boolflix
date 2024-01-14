@@ -46,12 +46,12 @@ export default {
                 </div>
                 <div class="my-card-col">
                     <div class="my-card my-2 px-2" v-for="movies, index in store.PopularSeries" :key="index">      
-                        <div class="flip-card" >
+                        <div class="flip-card my-4" >
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
                                     <img class="posterImg" :src="`https://image.tmdb.org/t/p/w342/${movies.poster_path}`" alt="">
                                 </div>
-                                <div class="flip-card-back">
+                                <div class="flip-card-back p-4">
                                     <h5> Titolo: {{ movies.name }}</h5>
                                     <h6> Titolo Originale: {{ movies.original_name }}</h6>
                                     <div class="lingua"> <h6>Lingua: {{ movies.original_language.toUpperCase()}}</h6> <img class="flag" :src="flag(movies.original_language)">
