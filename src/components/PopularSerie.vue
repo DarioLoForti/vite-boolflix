@@ -81,14 +81,15 @@ main{
     }
     .my-card-col {
         display: flex;
-        
-        flex-wrap: wrap;
+        overflow-x: auto;
+        white-space: nowrap;
     }
     .my-card{
-        width: calc(100% / 5 - 20px);
-        margin: 10px;
+        flex: 0 0 auto;
+        width: 250px;
+        margin-right: 10px;
         overflow-y: scroll;
-        max-height: 400px; 
+        max-height: 400px;
        }
        .stars{
         color: gold;
@@ -139,7 +140,9 @@ main{
         background-color: black;
         color: white;
         transform: rotateY(180deg);
+        overflow-x: auto;
         overflow-y: scroll; 
+        white-space: pre-line;
         flex: 1;
       }
     
