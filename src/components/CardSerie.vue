@@ -29,6 +29,10 @@ export default {
             src = `https://flagsapi.com/${lang.toUpperCase()}/flat/24.png`
             return src
             
+        },
+        stars(vote){
+            const numStars = (vote / 2).toFixed(0);
+            return '★'.repeat(numStars) + '☆'.repeat(5 - numStars);
         }
     }
     
@@ -46,7 +50,9 @@ export default {
                     <h6> Titolo Originale: {{ card.original_name }}</h6>
                     <div class="lingua"> <h6>Lingua: {{ card.original_language.toUpperCase()}}</h6> <img class="flag" :src="flag(card.original_language)">
                 </div>
-                <div class="voto"> <h6>Voto: {{ card.vote_average }}</h6> </div>
+                <div class="voto"> 
+                    <h6>Voto: <span class="stars">{{ stars(card.vote_average) }}</span></h6>
+                </div>
                 <p> {{ card.overview }}</p>
               </div>
             </div>
@@ -60,6 +66,9 @@ export default {
     overflow-y: scroll;
     max-height: 400px; /* Imposta un'altezza massima per la tua carta, in modo che la barra di scorrimento compaia solo quando necessario */
     position: relative;
+   }
+   .stars{
+    color: gold;
    }
    .posterImg{
     height: 100%;
