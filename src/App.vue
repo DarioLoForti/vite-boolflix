@@ -22,13 +22,16 @@ export default {
   PopularFilm(){
     axios.get(`${store.UrlPopularMovie}${store.keyApi}`).then(response =>{
         store.PopularMovies = response.data.results
+        store.view = true
 
         });   
   },
+
   PopularSerie(){
     axios.get(`${store.UrlPopularSeries}${store.keyApi}`).then(response =>{
         store.PopularSeries = response.data.results
-
+        store.view = true
+        
         });   
   },
 
@@ -36,12 +39,16 @@ export default {
       
         axios.get(`${store.UrlPointMovie}${store.keyApi}&query=${store.search}&language=it-IT`).then( response =>{
         store.movies = response.data.results
-
+        store.PopularMovies = ''
+        store.research = true
+        store.view = false
         });
 
         axios.get(`${store.UrlPointSeries}${store.keyApi}&query=${store.search}&language=it-IT`).then( response =>{
         store.series = response.data.results
-
+        store.PopularSeries = ''
+        store.research = true
+        store.view = false
         });  
 
          

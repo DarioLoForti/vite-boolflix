@@ -24,7 +24,7 @@ export default {
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h3>Film</h3>
+                    <h3 v-if= store.research >Film</h3>
                 </div>
                 <div class="my-card-col">
                     <CardFilm v-for="card, index in store.movies" :key="index" :card="card"/>
@@ -32,7 +32,7 @@ export default {
             </div>
             <div class="row ">
                 <div class="col-12">
-                <h3>Serie</h3>
+                <h3 v-if= store.research >Serie</h3>
                 </div>
                 <div class="my-card-col">
                     <CardSerie v-for="card, index in store.series" :key="index" :card="card"/>

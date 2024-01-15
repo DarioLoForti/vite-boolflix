@@ -43,7 +43,7 @@ export default {
 <template lang="">
 
     <div class="my-card my-2 px-2">      
-        <div class="flip-card">
+        <div class="flip-card my-4">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <img class="posterImg" :src="`https://image.tmdb.org/t/p/w342/${card.poster_path}`" alt="">

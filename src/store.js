@@ -10,5 +10,7 @@ export const store = reactive({
     PopularSeries: [],
     keyApi: 'ebb547ab2123b8e09060d57aad2efea6', 
     search: '',
+    research: false,
+    view: true,
 })
 
