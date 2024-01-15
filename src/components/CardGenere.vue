@@ -1,9 +1,9 @@
 <script>
 import { store } from '../store.js'
 export default {
-    name: 'CardFilm',
+    name: 'CardGenere',
     props: {
-        card: Object
+        genere: Object
     },
     data(){
         return{
@@ -47,17 +47,17 @@ export default {
         <div class="flip-card my-4">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
-                    <img class="posterImg" :src="`https://image.tmdb.org/t/p/w342/${card.poster_path}`" alt="">
+                    <img class="posterImg" :src="`https://image.tmdb.org/t/p/w342/${genere.poster_path}`" alt="">
                 </div>
                 <div class="flip-card-back p-3">
-                    <h5> Titolo: {{ card.title }}</h5>
-                    <h6> Titolo Originale: {{ card.original_title }}</h6>
-                    <div class="lingua"> <h6>Lingua: {{ card.original_language.toUpperCase()}}</h6> <img class="flag" :src="flag(card.original_language)">
+                    <h5> Titolo: {{ genere.title }}</h5>
+                    <h6> Titolo Originale: {{ genere.original_title }}</h6>
+                    <div class="lingua"> <h6>Lingua: {{ genere.original_language.toUpperCase()}}</h6> <img class="flag" :src="flag(genere.original_language)">
                     </div>
                     <div class="voto"> 
-                        <h6>Voto: <span class="stars">{{ stars(card.vote_average) }}</span></h6>
+                        <h6>Voto: <span class="stars">{{ stars(genere.vote_average) }}</span></h6>
                     </div>
-                    <p> {{ card.overview }}</p>
+                    <p> {{ genere.overview }}</p>
                 </div>
             </div>
         </div>   
