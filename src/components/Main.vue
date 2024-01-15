@@ -21,7 +21,7 @@ export default {
 </script>
 <template lang="">
     <main>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <h3 v-if= store.research >Film</h3>
@@ -47,7 +47,8 @@ main{
     background-color: rgb(56, 56, 56);
     .my-card-col {
         display: flex;
-        flex-wrap: wrap;
+        overflow-x: auto;
+        white-space: nowrap;
     }
 
     h3{

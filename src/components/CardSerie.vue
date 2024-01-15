@@ -46,7 +46,7 @@ export default {
                 <div class="flip-card-front">
                     <img class="posterImg" :src="`https://image.tmdb.org/t/p/w342/${card.poster_path}`" alt="">
                 </div>
-                <div class="flip-card-back p-4">
+                <div class="flip-card-back p-3">
                     <h5> Titolo: {{ card.name }}</h5>
                     <h6> Titolo Originale: {{ card.original_name }}</h6>
                     <div class="lingua"> <h6>Lingua: {{ card.original_language.toUpperCase()}}</h6> <img class="flag" :src="flag(card.original_language)">
@@ -62,11 +62,11 @@ export default {
 </template>
 <style lang="scss" scoped>
 .my-card{
-    width: calc(100% / 5 - 20px);
-    margin: 10px;
+    flex: 0 0 auto;
+    width: 250px;
+    margin-right: 10px;
     overflow-y: scroll;
-    max-height: 400px; /* Imposta un'altezza massima per la tua carta, in modo che la barra di scorrimento compaia solo quando necessario */
-    position: relative;
+    max-height: 400px;
    }
    .stars{
     color: gold;
@@ -94,7 +94,7 @@ export default {
     transition: transform 0.8s;
     transform-style: preserve-3d;
     flex: 1; 
-    display: flex;
+    display: flex; 
     flex-direction: column;
   }
   
@@ -118,7 +118,9 @@ export default {
     background-color: black;
     color: white;
     transform: rotateY(180deg);
+    overflow-x: auto;
     overflow-y: scroll; 
+    white-space: pre-line;
     flex: 1;
   }
 
