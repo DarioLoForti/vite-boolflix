@@ -1,12 +1,14 @@
 <script>
 import { store } from './store.js'
 import axios from 'axios';
+import UserAccounts from './components/UserAccounts.vue';
 import Header from './components/Header.vue'
 import Main from './components/Main.vue';
 import PopularFilm from './components/PopularFilm.vue';
 import PopularSerie from './components/PopularSerie.vue';
 export default {
   components:{
+    UserAccounts,
     Header,
     Main,
     PopularFilm,
@@ -31,7 +33,7 @@ export default {
     axios.get(`${store.UrlPopularSeries}${store.keyApi}`).then(response =>{
         store.PopularSeries = response.data.results
         store.view = true
-        
+
         });   
   },
 
@@ -64,10 +66,11 @@ export default {
 
 </script>
 <template lang="">
- <Header @search ="search" />
- <PopularFilm />
- <PopularSerie />
- <Main />
+ <UserAccounts v-if="store.user == false" />
+ <Header @search ="search" v-if="store.user == true" />
+ <PopularFilm v-if="store.user == true" />
+ <PopularSerie v-if="store.user == true" />
+ <Main v-if="store.user == true" />
 </template>
 <style lang="scss">
 @use './styles/generals.scss' as *;

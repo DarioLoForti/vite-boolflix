@@ -12,5 +12,7 @@ export const store = reactive({
     search: '',
     research: false,
     view: true,
+    user: false,
+    selectedUser: '',
 })
 
