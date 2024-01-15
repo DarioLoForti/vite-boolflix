@@ -5,7 +5,30 @@ export default {
     
     data(){
         return{
-            store
+            store,
+            showcase: [
+                {
+                    image: "public/Napoleone.jpg",
+                    name: 'Napoleone'
+                },
+                {
+                    image: "public/oppenheimer.jpg",
+                    name: 'Oppenheimer'
+                },
+                {
+                    image: "public/acquamen.jpeg",
+                    name: 'Acquamen'
+                },
+                {
+                    image: "public/john-wick-4-.jpg",
+                    name: 'John Wick 4'
+                },
+                {
+                    image: "public/avatar.jpg",
+                    name: 'Avatar'
+                },
+            ],
+            active: 0
         }
     },
     methods:{
@@ -32,13 +55,38 @@ export default {
         stars(vote){
             const numStars = (vote / 2).toFixed(0);
             return '★'.repeat(numStars) + '☆'.repeat(5 - numStars);
+        },
+        Next() {
+            setInterval(() => {
+                this.active++
+                if (this.active == this.slider.length) {
+                    this.active = 0
+                }
+            }, 2000);
         }
 
-    }
+    },
+    created() {
+        this.Next()
+    },
 }
 </script>
 <template lang="">
     <main>
+        <div class="showcase">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <img :src="showcase[active].image" alt="showcase[active].name" class="">
+                        <h2>{{ showcase[active].name }}</h2>
+                        <button class="btn btn-secondary py-2 px-4"> <i class="fa-solid fa-play fa-xs" style="color: #ffffff;"></i> Play </button>
+                        <button class="btn btn-light py-2 px-4 second"> <i class="fa-solid fa-circle-info" style="color: #8a8a8a;"></i> Info </button>
+                        <div class="credits">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
@@ -72,7 +120,47 @@ export default {
 </template>
 <style lang="scss" scoped>
 main{
+    position: relative;
     background-color: rgb(56, 56, 56);
+    .showcase {
+        img {
+            width: 100%;
+            height: 800px;
+        }
+    }
+    .second{
+        font-size: 35px;
+        position: absolute;
+        top: 40%;
+        left: 220px;
+        text-align: left; 
+        color: gray;
+        font-weight: bold;
+        margin: 20px;
+        z-index: 1;
+    }
+    button{
+        font-size: 35px;
+        position: absolute;
+        top: 40%;
+        left: 50px;
+        text-align: left; 
+        color: white;
+        font-weight: bold;
+        margin: 20px;
+        z-index: 1;
+    }
+    h2 {
+        font-size: 75px;
+        position: absolute;
+        top: 30%;
+        left: 50px;
+        text-align: left; 
+        color: white;
+        font-weight: bold;
+        margin: 20px;
+        z-index: 1;
+      }
     h3{
         text-align: center;
         color: red;

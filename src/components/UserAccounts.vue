@@ -15,12 +15,12 @@ export default {
                     img: 'public/user2.jpeg'
                 },
                 {
-                    name: 'User 3',
-                    img: 'public/user3.jpeg'
-                },
-                {
                     name: 'Kids',
                     img: 'public/kids.jpeg'
+                },
+                {
+                    name: 'Add Profile',
+                    img: 'public/add.png'
                 },
             ]
         }
