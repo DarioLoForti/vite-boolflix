@@ -63,27 +63,66 @@ export default {
       });
   },
 
+//   cast(){
+    // axios.get(`https://api.themoviedb.org/3/movie/475/credits?api_key=ebb547ab2123b8e09060d57aad2efea6`)
+    //           'https://api.themoviedb.org/3/discover/movie/{id_movie}/credits'
+//     axios.get(`${store.UrlGenersMovie}${store.movies[0].id}/credits?api_key=${store.keyApi}`).then(response =>{
+//       store.cast = response.data.cast
+//       console.log(store.cast)
+//   });
+// },
+
   search(){
       
-        axios.get(`${store.UrlPointMovie}${store.keyApi}&query=${store.search}&language=it-IT`).then( response =>{
-        store.movies = response.data.results
-        console.log(store.movies)
-        store.PopularMovies = ''
-        store.research = true
-        store.view = false
-        
-       
-        });
+        axios.get(`${store.UrlPointMovie}${store.keyApi}&query=${store.search}&language=it-IT`).then( response => {
+          let movies_response = response.data.results;
+          movies_response.forEach((elem) => {
+            let obj = {
+              image: elem.poster_path,
+              title: elem.title,
+              original_title: elem.original_title,
+              vote: elem.vote_average,
+              original_language: elem.original_language,
+              overview: elem.overview,
+          
+            }
+            axios.get(`${store.UrlCastMovie}${elem.id}/credits?api_key=${store.keyApi}`).then(response =>{
+            store.cast = response.data.cast
+            obj.cast = response.data.cast
+            store.movies.push(obj);
+            });
+            store.research = true
+            store.view = false
+          });
+          
+        })
+            
 
         axios.get(`${store.UrlPointSeries}${store.keyApi}&query=${store.search}&language=it-IT`).then( response =>{
-        store.series = response.data.results
-        store.PopularSeries = ''
-        store.research = true
-        store.view = false
+          let series_response = response.data.results;
+          series_response.forEach((elem) => {
+            let obj = {
+              image: elem.poster_path,
+              name: elem.name,
+              original_name: elem.original_name,
+              vote: elem.vote_average,
+              original_language: elem.original_language,
+              overview: elem.overview,
+          
+            }
+            axios.get(`${store.UrlCastSerie}${elem.id}/credits?api_key=${store.keyApi}`).then(response =>{
+            store.cast = response.data.cast
+            obj.cast = response.data.cast
+            store.series.push(obj);
+            });
+            store.research = true
+            store.view = false
+          });
+
         });  
 
         
-         
+        
       
   },
   },
@@ -98,7 +137,9 @@ export default {
 
 </script>
 <template lang="">
+  <Transition>
  <UserAccounts v-if="store.user == false" />
+</Transition>
  <Header @search ="search" v-if="store.user == true" />
  <Showcase v-if="store.user == true && store.genere == ''" />
  <Select @type ="type" v-if="store.user == true"  />
@@ -108,5 +149,15 @@ export default {
 </template>
 <style lang="scss">
 @use './styles/generals.scss' as *;
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
   
 </style> 

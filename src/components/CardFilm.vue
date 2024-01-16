@@ -47,7 +47,7 @@ export default {
         <div class="flip-card my-4">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
-                    <img class="posterImg" :src="`https://image.tmdb.org/t/p/w342/${card.poster_path}`" alt="">
+                    <img class="posterImg" :src="`https://image.tmdb.org/t/p/w342/${ card.image }`" alt="">
                 </div>
                 <div class="flip-card-back p-3">
                     <h5> Titolo: {{ card.title }}</h5>
@@ -58,6 +58,7 @@ export default {
                         <h6>Voto: <span class="stars">{{ stars(card.vote_average) }}</span></h6>
                     </div>
                     <p> {{ card.overview }}</p>
+                    <p v-for="actor in card.cast.slice(0, 5)" :key="actor.id"> Nome Attore: {{actor.name}} </p>       
                 </div>
             </div>
         </div>   
