@@ -60,7 +60,7 @@ export default {
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <h3 v-if= store.view >Popular Film</h3>
+                    <h3>Popular Film</h3>
                 </div>
                 <div class="my-card-col">
                     <div class="my-card my-2 px-2" v-for="movies, index in store.PopularMovies" :key="index">      

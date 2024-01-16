@@ -11,12 +11,12 @@ export default {
 }
 </script>
 <template lang="">
-        <div class="container-fluid" v-if= store.view>
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-3 d-flex">
                     <h5 class="type">Film</h5>
                     <select class="form-select mt-3 " id="type" v-model="store.genere" @change="$emit('type')">
-                        <option value="" selected> Seleziona Genere</option>
+                        <option value="" selected></option>
                         <option v-for="(genere, index) in store.generelist" :key="index" :value="genere.id">
                             {{ genere.name}}
                         </option>

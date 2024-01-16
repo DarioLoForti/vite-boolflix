@@ -13,7 +13,6 @@ import Select from './components/Select.vue';
 import CardAttori from './components/CardAttori.vue';
 export default {
   components:{
-
     UserAccounts,
     Header,
     Main,
@@ -98,8 +97,7 @@ export default {
 
   type(){
         axios.get(`${store.UrlGenersMovie}?api_key=${store.keyApi}&with_genres=${store.genere}`).then(response =>{
-        store.generi = response.data.results
-        store.generi = ''
+        store.generi = response.data.results   
         store.view = true
         store.filter = true
         store.research = false
@@ -132,9 +130,8 @@ export default {
             store.research = true
             store.view = false
           });
+        });
           
-        })
-            
 
         axios.get(`${store.UrlPointSeries}${store.keyApi}&query=${store.search}&language=it-IT`).then( response =>{
           let series_response = response.data.results;
@@ -158,6 +155,7 @@ export default {
           });
 
         });    
+        
   },
 
   },
@@ -179,11 +177,11 @@ export default {
  <UserAccounts v-if="store.user == false" />
 </Transition>
  <Header @search ="search" v-if="store.user == true" />
- <Showcase v-if="store.user == true && store.genere == ''" />
+ <Showcase v-if="store.user == true && store.genere == '' && store.research == '' " />
  <Select @type ="type" v-if="store.user == true"  />
  <PopularFilm  v-if="store.user == true && store.genere == '' && store.research == '' " />
  <TopMovie  v-if="store.user == true && store.genere == '' && store.research == '' " />
- <PopularSerie v-if="store.user == true && store.genere == '' && store.research == '' "/>
+ <PopularSerie v-if="store.user == true && store.genere == '' && store.research == '' " />
  <TopSerie v-if="store.user == true && store.genere == '' && store.research == '' " />
  <CardAttori v-if="store.user == true && store.genere == '' && store.research == '' " />
  <Main v-if="store.user == true" />
