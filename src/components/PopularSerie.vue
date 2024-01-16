@@ -29,6 +29,15 @@ export default {
             
         },
 
+        scrollLeft() {
+            const container = this.$el.querySelector('.my-card-col');
+            container.scrollLeft -= 300; 
+        },
+        scrollRight() {
+            const container = this.$el.querySelector('.my-card-col');
+            container.scrollLeft += 300; 
+        },
+
         stars(vote){
             const numStars = (vote / 2).toFixed(0);
             return '★'.repeat(numStars) + '☆'.repeat(5 - numStars);
@@ -64,6 +73,8 @@ export default {
                             </div>
                         </div>   
                     </div>
+                    <button @click="scrollLeft" class="scroll-button-left"><i class="fa-solid fa-circle-arrow-left"></i></button>
+                    <button @click="scrollRight" class="scroll-button-right"><i class="fa-solid fa-circle-arrow-right"></i></button>
                 </div>
             </div>
         </div>
@@ -72,6 +83,37 @@ export default {
 </template>
 <style lang="scss" scoped>
 main{
+    position: relative;
+    .scroll-button-left {
+        position: absolute;
+        top: 55%;
+        transform: translateY(-50%);
+        background-color: rgb(56, 56, 56);
+        border: 1px solid black;
+        border-radius: 50%;
+        padding: 20px;
+        cursor: pointer;
+        z-index: 2;
+    }
+.scroll-button-right {
+        position: absolute;
+        top: 55%;
+        right: 10px;
+        transform: translateY(-50%);
+        background-color: rgb(56, 56, 56);
+        border: 1px solid black;
+        border-radius: 50%;
+        padding: 20px;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .scroll-button-left:hover {
+        background-color: white;
+    }
+    .scroll-button-right:hover {
+        background-color: white;
+    }
     
     h3{
         text-align: center;
@@ -81,7 +123,7 @@ main{
     }
     .my-card-col {
         display: flex;
-        overflow-x: auto;
+        overflow-x: hidden;
         white-space: nowrap;
     }
     .my-card{

@@ -63,15 +63,6 @@ export default {
       });
   },
 
-//   cast(){
-    // axios.get(`https://api.themoviedb.org/3/movie/475/credits?api_key=ebb547ab2123b8e09060d57aad2efea6`)
-    //           'https://api.themoviedb.org/3/discover/movie/{id_movie}/credits'
-//     axios.get(`${store.UrlGenersMovie}${store.movies[0].id}/credits?api_key=${store.keyApi}`).then(response =>{
-//       store.cast = response.data.cast
-//       console.log(store.cast)
-//   });
-// },
-
   search(){
       
         axios.get(`${store.UrlPointMovie}${store.keyApi}&query=${store.search}&language=it-IT`).then( response => {
@@ -81,7 +72,7 @@ export default {
               image: elem.poster_path,
               title: elem.title,
               original_title: elem.original_title,
-              vote: elem.vote_average,
+              vote_average: elem.vote_average,
               original_language: elem.original_language,
               overview: elem.overview,
           
@@ -105,7 +96,7 @@ export default {
               image: elem.poster_path,
               name: elem.name,
               original_name: elem.original_name,
-              vote: elem.vote_average,
+              vote_average: elem.vote_average,
               original_language: elem.original_language,
               overview: elem.overview,
           
@@ -143,8 +134,8 @@ export default {
  <Header @search ="search" v-if="store.user == true" />
  <Showcase v-if="store.user == true && store.genere == ''" />
  <Select @type ="type" v-if="store.user == true"  />
- <PopularFilm  v-if="store.user == true && store.genere == '' " />
- <PopularSerie v-if="store.user == true && store.genere == '' " />
+ <PopularFilm  v-if="store.user == true && store.genere == '' && store.research == '' " />
+ <PopularSerie v-if="store.user == true && store.genere == '' && store.research == '' "/>
  <Main v-if="store.user == true" />
 </template>
 <style lang="scss">
