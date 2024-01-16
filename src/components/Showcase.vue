@@ -32,6 +32,9 @@ export default {
         }
     },
     methods:{
+
+        // METODO FAR SCORRERE LO SLIDER IN AUTOMATICO ALL'INFINITO
+
         Next() {
             setTimeout(() => {
                 this.active++
@@ -65,6 +68,7 @@ export default {
 </template>
 <style lang="scss" scoped>
 .showcase {
+    padding-top: 80px;
     img {
         width: 100%;
         height: 800px;

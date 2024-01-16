@@ -11,6 +11,8 @@ export default {
         }
     },
     methods:{
+
+        // METODO PER INSERIRE LE BANDIERE DELLA NAZIONE
         
         flag(lang){
             let src = ""
@@ -30,6 +32,8 @@ export default {
             return src
             
         },
+
+        // METODO PER INSERIRE LE STELLINE NELLA VALUTAZIONE
 
         stars(vote){
             const numStars = (vote / 2).toFixed(0);

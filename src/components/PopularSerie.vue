@@ -9,6 +9,8 @@ export default {
         }
     },
     methods:{
+
+        // METODO PER INSERIRE LE BANDIERE DELLA NAZIONE
         
         flag(lang){
             let src = ""
@@ -29,6 +31,8 @@ export default {
             
         },
 
+        // METODO PER INSERIRE SCROLLARE LA LISTA DELLE SERIE TV 
+
         scrollLeft() {
             const container = this.$el.querySelector('.my-card-col');
             container.scrollLeft -= 300; 
@@ -37,6 +41,8 @@ export default {
             const container = this.$el.querySelector('.my-card-col');
             container.scrollLeft += 300; 
         },
+
+        // METODO PER INSERIRE LE STELLINE NELLA VALUTAZIONE
 
         stars(vote){
             const numStars = (vote / 2).toFixed(0);

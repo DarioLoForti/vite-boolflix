@@ -39,8 +39,11 @@ export default {
 <style lang="scss" scoped>
 @use '../styles/generals.scss' as *;
     header{
+        width: 100%;
         background-color: black;
         padding-top: 20px;
+        position: fixed;
+        z-index: 99;
         .h{
             height: 50px;
         }

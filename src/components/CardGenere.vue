@@ -31,6 +31,8 @@ export default {
             
         },
 
+        // METODO PER INSERIRE LE STELLINE NELLA VALUTAZIONE
+        
         stars(vote){
             const numStars = (vote / 2).toFixed(0);
             return '★'.repeat(numStars) + '☆'.repeat(5 - numStars);

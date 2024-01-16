@@ -25,6 +25,7 @@ export default {
     }
   },
   methods: {
+// CHIAMATA API PER FILM POPOLARI
 
   PopularFilm(){
         axios.get(`${store.UrlPopularMovie}${store.keyApi}`).then(response =>{
@@ -34,6 +35,7 @@ export default {
 
     });   
   },
+// CHIAMATA API PER SERIE TV POPOLARI
 
   PopularSerie(){
         axios.get(`${store.UrlPopularSeries}${store.keyApi}`).then(response =>{
@@ -44,6 +46,8 @@ export default {
         });   
   },
 
+  // CHIAMATA API PER POPOLARE ARRAY CON CODICI PER IL GENERE
+
   listgenere(){
         axios.get(`${store.UrlGenersList}${store.keyApi}`).then(response =>{
           store.generelist = response.data.genres
@@ -51,6 +55,7 @@ export default {
         })
   },
 
+// CHIAMATA API PER POPOLARE ARRAY CON FILM SUDDIVISI PER IL GENERE SCELTO NELLA SELECTION
 
   type(){
         axios.get(`${store.UrlGenersMovie}?api_key=${store.keyApi}&with_genres=${store.genere}`).then(response =>{
@@ -63,6 +68,7 @@ export default {
       });
   },
 
+// CHIAMATA API PER POPOLARE ARRAY DEI FILM E DELLE SERIE TV IN BASE ALLA RICERCA EFFETTUATA NEL CAMPO INPUT
   search(){
       
         axios.get(`${store.UrlPointMovie}${store.keyApi}&query=${store.search}&language=it-IT`).then( response => {
