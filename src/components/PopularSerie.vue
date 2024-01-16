@@ -72,7 +72,7 @@ export default {
 </template>
 <style lang="scss" scoped>
 main{
-    background-color: rgb(56, 56, 56);
+    
     h3{
         text-align: center;
         color: red;

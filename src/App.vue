@@ -6,7 +6,7 @@ import Header from './components/Header.vue'
 import Main from './components/Main.vue';
 import PopularFilm from './components/PopularFilm.vue';
 import PopularSerie from './components/PopularSerie.vue';
-import Showcase from './components/showcase.vue';
+import Showcase from './components/Showcase.vue';
 import Select from './components/Select.vue';
 export default {
   components:{
@@ -44,13 +44,21 @@ export default {
         });   
   },
 
+  listgenere(){
+        axios.get(`${store.UrlGenersList}${store.keyApi}`).then(response =>{
+          store.generelist = response.data.genres
+  
+        })
+  },
+
 
   type(){
         axios.get(`${store.UrlGenersMovie}?api_key=${store.keyApi}&with_genres=${store.genere}`).then(response =>{
         store.generi = response.data.results
+        store.genrei = ''
         store.view = true
         store.filter = true
-        console.log(store.generi)
+        store.research = false
         
       });
   },
@@ -80,8 +88,10 @@ export default {
   },
   },
   created(){
+    this.listgenere();
     this.PopularFilm();
     this.PopularSerie();
+    
   }
   
 }
@@ -90,10 +100,10 @@ export default {
 <template lang="">
  <UserAccounts v-if="store.user == false" />
  <Header @search ="search" v-if="store.user == true" />
- <Showcase v-if="store.user == true" />
+ <Showcase v-if="store.user == true && store.genere == ''" />
  <Select @type ="type" v-if="store.user == true"  />
- <PopularFilm  v-if="store.user == true" />
- <PopularSerie v-if="store.user == true" />
+ <PopularFilm  v-if="store.user == true && store.genere == '' " />
+ <PopularSerie v-if="store.user == true && store.genere == '' " />
  <Main v-if="store.user == true" />
 </template>
 <style lang="scss">

@@ -76,7 +76,7 @@ export default {
 <style lang="scss" scoped>
 main{
     position: relative;
-    background-color: rgb(56, 56, 56);
+
     
     h3{
         text-align: center;

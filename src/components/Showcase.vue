@@ -52,7 +52,7 @@ export default {
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <img :src="showcase[active].image" alt="showcase[active].name" class="">
+                    <img :src="showcase[active].image" :alt="showcase[active].name" class="">
                     <h2>{{ showcase[active].name }}</h2>
                     <button class="btn btn-secondary py-2 px-4"> <i class="fa-solid fa-play fa-xs" style="color: #ffffff;"></i> Riproduci </button>
                     <button class="btn btn-light py-2 px-4 second"> <i class="fa-solid fa-circle-info" style="color: #8a8a8a;"></i> Altre Info </button>
@@ -65,7 +65,6 @@ export default {
 </template>
 <style lang="scss" scoped>
 .showcase {
-    background-color: rgb(56, 56, 56);
     img {
         width: 100%;
         height: 800px;

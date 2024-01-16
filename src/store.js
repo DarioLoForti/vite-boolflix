@@ -11,6 +11,8 @@ export const store = reactive({
     UrlGenersMovie: 'https://api.themoviedb.org/3/discover/movie',
     generi: [],
     genere: '',
+    UrlGenersList: 'https://api.themoviedb.org/3/genre/movie/list?api_key=',
+    generelist: [],
     keyApi: 'ebb547ab2123b8e09060d57aad2efea6', 
     search: '',
     research: false,

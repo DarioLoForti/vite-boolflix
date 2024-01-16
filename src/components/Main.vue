@@ -54,7 +54,7 @@ export default {
 </template>
 <style lang="scss" scoped>
 main{
-    background-color: rgb(56, 56, 56);
+    
     .my-card-col {
         display: flex;
         overflow-x: auto;
