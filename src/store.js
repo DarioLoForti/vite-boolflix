@@ -25,6 +25,9 @@ export const store = reactive({
     UrlCastSerie: 'https://api.themoviedb.org/3/tv/',
     cast:[],
 
+    UrlAttori: 'https://api.themoviedb.org/3/trending/person/',
+    attori:[],
+
     UrlGenersList: 'https://api.themoviedb.org/3/genre/movie/list?api_key=',
     generelist: [],
     

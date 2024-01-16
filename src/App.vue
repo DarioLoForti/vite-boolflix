@@ -10,6 +10,7 @@ import PopularSerie from './components/PopularSerie.vue';
 import TopSerie from './components/TopSerie.vue';
 import Showcase from './components/Showcase.vue';
 import Select from './components/Select.vue';
+import CardAttori from './components/CardAttori.vue';
 export default {
   components:{
 
@@ -21,7 +22,8 @@ export default {
     Showcase,
     Select,
     TopSerie,
-    TopMovie
+    TopMovie,
+    CardAttori
   },
   data(){
     return{
@@ -29,6 +31,17 @@ export default {
     }
   },
   methods: {
+
+  // CHIAMATA API PER POPOLARE ARRAY ATTORI POPOLOLARI
+
+  Actor(){
+    axios.get(`${store.UrlAttori}day?api_key=${store.keyApi}`).then(response => {
+      store.attori = response.data.results
+      store.view = true
+      store.filter = false
+    })
+  },
+
 // CHIAMATA API PER FILM POPOLARI
 
   PopularFilm(){
@@ -86,13 +99,14 @@ export default {
   type(){
         axios.get(`${store.UrlGenersMovie}?api_key=${store.keyApi}&with_genres=${store.genere}`).then(response =>{
         store.generi = response.data.results
-        store.genrei = ''
+        store.generi = ''
         store.view = true
         store.filter = true
         store.research = false
         
       });
   },
+
 
 // CHIAMATA API PER POPOLARE ARRAY DEI FILM E DELLE SERIE TV IN BASE ALLA RICERCA EFFETTUATA NEL CAMPO INPUT
 
@@ -153,6 +167,7 @@ export default {
     this.PopularSerie();
     this.Topserie();
     this.Topmovie();
+    this.Actor();
     
   }
   
@@ -170,6 +185,7 @@ export default {
  <TopMovie  v-if="store.user == true && store.genere == '' && store.research == '' " />
  <PopularSerie v-if="store.user == true && store.genere == '' && store.research == '' "/>
  <TopSerie v-if="store.user == true && store.genere == '' && store.research == '' " />
+ <CardAttori v-if="store.user == true && store.genere == '' && store.research == '' " />
  <Main v-if="store.user == true" />
 </template>
 <style lang="scss">
