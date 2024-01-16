@@ -6,6 +6,7 @@ import Header from './components/Header.vue'
 import Main from './components/Main.vue';
 import PopularFilm from './components/PopularFilm.vue';
 import PopularSerie from './components/PopularSerie.vue';
+import TopSerie from './components/TopSerie.vue';
 import Showcase from './components/Showcase.vue';
 import Select from './components/Select.vue';
 export default {
@@ -17,7 +18,8 @@ export default {
     PopularFilm,
     PopularSerie,
     Showcase,
-    Select
+    Select,
+    TopSerie
   },
   data(){
     return{
@@ -46,6 +48,16 @@ export default {
         });   
   },
 
+  // CHIAMATA API PER SERIE TV PIU' VOTATE
+
+  Topserie(){
+      axios.get(`${store.UrlTopSeries}${store.keyApi}`).then(response => {
+      store.topseries = response.data.results
+      store.view = true
+      store.filter = false
+    })
+  },
+
   // CHIAMATA API PER POPOLARE ARRAY CON CODICI PER IL GENERE
 
   listgenere(){
@@ -69,6 +81,7 @@ export default {
   },
 
 // CHIAMATA API PER POPOLARE ARRAY DEI FILM E DELLE SERIE TV IN BASE ALLA RICERCA EFFETTUATA NEL CAMPO INPUT
+
   search(){
       
         axios.get(`${store.UrlPointMovie}${store.keyApi}&query=${store.search}&language=it-IT`).then( response => {
@@ -116,17 +129,15 @@ export default {
             store.view = false
           });
 
-        });  
-
-        
-        
-      
+        });    
   },
+
   },
   created(){
     this.listgenere();
     this.PopularFilm();
     this.PopularSerie();
+    this.Topserie();
     
   }
   
@@ -142,6 +153,7 @@ export default {
  <Select @type ="type" v-if="store.user == true"  />
  <PopularFilm  v-if="store.user == true && store.genere == '' && store.research == '' " />
  <PopularSerie v-if="store.user == true && store.genere == '' && store.research == '' "/>
+ <TopSerie v-if="store.user == true && store.genere == '' && store.research == '' " />
  <Main v-if="store.user == true" />
 </template>
 <style lang="scss">
